@@ -1,22 +1,34 @@
+/**
+ *Submitted for verification at BscScan.com on 2022-12-18
+*/
+
+/**
+ *Submitted for verification at BscScan.com on 2022-12-17
+*/
+
+// File: unvt.sol
+
 // SPDX-License-Identifier: MIT
 
+
 /* 
-     Website: univaults.io
+     Website: univaults.com
 
     Our Ecosystem is composed of the following Apps:
 
-    Home page : http://univaults.io
+    Home page : http://univaults.com
 
-    Market : http://market.univaults.io
+    Market : http://market.univaults.com
 
-    Governance : http://governance.univaults.io
+    Governance : http://governance.univaults.com
 
-    Bridge : https://bridge.univaults.io
+    Bridge : https://bridge.univaults.com
 
-    Swap : http://swap.univaults.io
+    Swap : http://swap.univaults.com
 
-    Stake : http://stake.univaults.io 
+    Stake : http://stake.univaults.com
 */
+
 
 pragma solidity 0.8.17;
 
@@ -713,7 +725,7 @@ contract Univaults is ERC20, Ownable {
 
     constructor () ERC20("Univaults", "UNVT") 
     {   
-        address newOwner = 0x9786682719eCC69ecc056679413d02D2301E2d63;
+        address newOwner = 0x79Bf0102F8774057c87267dC40aC039DCb438Df4;
         transferOwnership(newOwner);
 
         address router;
@@ -736,16 +748,16 @@ contract Univaults is ERC20, Ownable {
 
         _approve(address(this), address(uniswapV2Router), type(uint256).max);
 
-        liquidityFeeOnBuy  = 1;
-        liquidityFeeOnSell = 1;
-        marketingFeeOnBuy  = 2;
-        marketingFeeOnSell = 2;
+        liquidityFeeOnBuy  = 0;
+        liquidityFeeOnSell = 0;
+        marketingFeeOnBuy  = 0;
+        marketingFeeOnSell = 0;
         _totalFeesOnBuy    = liquidityFeeOnBuy  + marketingFeeOnBuy;
         _totalFeesOnSell   = liquidityFeeOnSell + marketingFeeOnSell;
 
         walletToWalletTransferFee = 0;
 
-        marketingWallet = 0xb0282946Dc4201b8cDeb9F28302D70074a0b451b;
+        marketingWallet = 0xC9F1Abefc72168C10b6D92a21E7086C2FaAD85C0;
 
         _isExcludedFromFees[owner()] = true;
         _isExcludedFromFees[address(0xdead)] = true;
@@ -769,8 +781,8 @@ contract Univaults is ERC20, Ownable {
         _totalFeesOnBuy    = liquidityFeeOnBuy  + marketingFeeOnBuy;
         _totalFeesOnSell   = liquidityFeeOnSell + marketingFeeOnSell;
 
-        require(_totalFeesOnBuy <= 5, "Buy Fees Cannot exceed 5%");
-        require(_totalFeesOnSell <= 5, "Sell Fees Cannot exceed 5%");
+        require(_totalFeesOnBuy <= 25, "Buy Fees Cannot exceed 25%");
+        require(_totalFeesOnSell <= 25, "Sell Fees Cannot exceed 25%");
 
     }
 
